@@ -70,7 +70,7 @@ const lotocracy_script: PlutusScript = {
 
 
 const { address: scriptAddress } = serializePlutusScript(lotocracy_script, undefined, 1, false);
-console.log(scriptAddress);
+console.log("Loto script address:" + " " + scriptAddress);
 
 
 
@@ -99,7 +99,7 @@ console.log(utxos);
 const serialized_datum = utxos[0].output.plutusData;
 const deserialize_datum: FortunaDatum = deserializeDatum(serialized_datum ?? 'undefined');
 const current_block = deserialize_datum.fields[0].int;
-console.log(current_block);
+console.log("Fortuna current block:" + current_block);
 console.log(deserialize_datum.fields[1].bytes);
 
 
