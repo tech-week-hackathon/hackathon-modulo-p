@@ -45,17 +45,24 @@ To ease the flow of the prototyping. One condition is to claim if at least the b
 The claim has to be made usin the exact commited block. This make the election fully deterministic, although if a new block is mined, then datum will changed and the opportunity to claim the Loto token will be gone forever. As we know contracts can't read past or consumed datums. The claim has to be within 10 minutes.
 
 
+## Using the project
+
+The validator is on the `on-chain`repository. The compilation can be check with:
+
+```bash
+aiken check
+```
+
+The validator can be built with: 
+
+```bash 
+aiken build
+```
 
 
+This project uses node `v22.11.0` version and it is an npm project. It includes scripts to build and run the npm project.
 
-Counterparties (other users) can join as additional delegates.
-They interact with the system by:
-Claiming and returning the Consul Token.
-Adding their address to the reps field, registering as additional candidates.
-Random Selection via Withdrawal
-
-A withdrawal mechanism determines the chosen delegate:
-After a predefined number of blocks from the original commitment, the token unlocks.
-If the block number is:
-Even: The first delegate wins.
-Odd: The second delegate wins.
+```bash
+npm run build
+npm run start  #THis will execute the index.js file. The actual program.
+```
