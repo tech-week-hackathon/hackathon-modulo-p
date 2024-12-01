@@ -22,6 +22,16 @@ console.log("");
 console.log("Type '1' if you want to use the first user, type '2' otherwise:");
 
 
+function hexToDecimal(hex: string): number {
+  // Normalize the input to always include the prefix
+  if (!hex.startsWith("0x")) {
+      hex = "0x" + hex;
+  }
+
+  // Convert the hex string to a decimal number
+  return parseInt(hex, 16);
+}
+
 //import * as readline from 'readline';
 //
 //const rl = readline.createInterface({
@@ -103,6 +113,11 @@ console.log("Fortuna current block:" + current_block);
 console.log(deserialize_datum.fields[1].bytes);
 
 
+var arbitrageNumber = hexToDecimal(current_block.toString()) % 2 
+console.log("Arbiatrage number:" + " " + arbitrageNumber);
+
+
+
 const sk_2 = "xprv1pzau0m3m4k22a7lyqummqg5h2g6wh96f3emxr7f7gppnehru04gqr5c3acvn92gpypsq6agm6c3m7q8q788pjjts3kcpmyjlk4gd5jv922jupppcg4cymva5jr5lw4lxng4u0wtw6wppymwtytyl98qqdv96ccxx" 
 const sk_1 = "xprv1zp6frpv9hu5y8nvcdz3umv9z4wang0f5k433rzyvj7xlefxmy3f20hg30jsnwyvazz87e80fzngd9tgcdmut62n80ve3cq8c7px7lg6tc4vtaqxrg8nkqtx4jxkqm4sgt0as4hc70q29xkxrzzmk64f38yr2ns3p"
 
@@ -164,27 +179,6 @@ const assetMetadata: AssetMetadata = {
   "mediaType": "",
   "description": "This is a lotocracy token!"
 };
-
-const asset: Mint = {
-  assetName: 'Loto',
-  assetQuantity: '1',
-  metadata: assetMetadata,
-  label: '721',
-  recipient: scriptAddress, 
-};
-
-
-
-  //console.log(wallet_1_utxos);
-  //const balance = await wallet.getBalance();
-  // const collateralUtxos = await wallet.getCollateral();
-  // const txHash = await wallet.submitTx(signedTx);
-  // const txhash = await wallet.createCollateral();
-
-
-//console.log(wallet_1_utxos);
-
-
 
 
 
